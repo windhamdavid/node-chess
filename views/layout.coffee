@@ -20,5 +20,5 @@ html ->
         p ->
           em 'Powered with Meryl, Node.js, coffee-script, Redis nowJS and coffeeKup!'
         p ->  
-          a href: 'http://github.com/gradus/node-chess', style: 'text-decoration:none;', ->
+          a href: 'http://github.com/gradus/node-chess', ->
             'Source Code'

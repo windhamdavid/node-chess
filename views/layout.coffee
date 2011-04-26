@@ -1,9 +1,10 @@
 doctype 5
 html ->
   head ->
-    title 'Node Chess'
+    title 'How about a nice game of chess?'
     link rel: 'stylesheet', href: '/stylesheets/app.css'
     script type: 'text/javascript', src: '/nowjs/now.js'
+	script type: 'text/javascript', src: '/chess.js/chess.js'
     script type: 'text/javascript', src: 'http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js'
     script type: 'text/javascript', src: 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js'
     script type: 'text/javascript', src: '/javascripts/jquery.cookie.js'
@@ -19,6 +20,4 @@ html ->
         span -> img src: '/images/coffeescript.png'
         p ->
           em 'Powered with Meryl, Node.js, coffee-script, Redis nowJS and coffeeKup!'
-        p ->  
-          a href: 'http://github.com/gradus/node-chess', ->
-            'Source Code'
+

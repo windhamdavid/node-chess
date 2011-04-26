@@ -10,13 +10,10 @@ html ->
   body ->
     div id: 'wrap', ->
       div id: 'header', ->
-        a href: '/', ->
-          h2 ->
-            "Node Chess"
       div id: 'content',
         -> @render @content, @context
       div id: 'footer', ->
         span -> img src: '/images/coffeescript.png'
         p ->
-          em 'Powered with Meryl, Node.js, coffee-script, Redis nowJS and coffeeKup!'
+          em 'Powered with Meryl, Node.js, coffee-script, Redis nowJS Chess.js and coffeeKup!'
 

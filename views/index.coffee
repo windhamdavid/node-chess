@@ -62,11 +62,12 @@ coffeescript ->
     now.ready ->
       $("#messages").show()
       now.distributeMessage('has connected')
+      now.distributeSound('ding')
 
     setPosition = (className, top, left) ->
       $("#messages").show()
-      now.updateElement(className, top, left) 
-    
+      now.updateElement(className, top, left)
+
     className = ""
     $( ".chess_piece" ).draggable(
       opacity: 0.55
@@ -78,6 +79,7 @@ coffeescript ->
         pieceName = piecePath.toString().replace("chess_pieces/", "")
         setPosition(className, ui.position.top, ui.position.left)
         now.distributeMessage("moved a #{pieceName.replace('_', ' ').replace('.png', '')}")
+        now.distributeSound('snare') 
       )
 
     if $.cookie('klop_name')
@@ -90,15 +92,19 @@ coffeescript ->
       if event.keyCode == 13
         now.distributeMessage($("#text_input").val())
         $("#text_input").val("")
+        now.distributeSound('ding')
 
     $("#send_button").click( () ->
       now.distributeMessage($("#text_input").val())
       $("#text_input").val("")
+      now.distributeSound('ding')
     )
 
     now.receiveMessage = (name, message) ->
       if message
         $("#messages").prepend("<p>" + name + ": " + message + "</p>")
-
     now.receiveElement= (className, top, left) ->
       $(".#{className.replace(" ",  ".").replace(" ui-draggable", "")}").css({"position":"relative","left":"#{left}px","top":"#{top}px"})
+    now.receiveSound= (audiotag) ->
+      document.getElementById(audiotag).play()
+

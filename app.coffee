@@ -16,16 +16,19 @@ server = connect(
     templateDir: 'views'
     connect.logger()
 )
+#server.listen(80)
 server.listen(8888)
+
 console.log 'listening...'
 
 everyone = now.initialize(server)
-everyone.now.distributeMessage = (message) ->
-  everyone.now.receiveMessage(this.now.name, message)
-
 everyone.connected(  (message) ->
   everyone.now.receiveMessage(this.now.name, message)
 )
-
+everyone.now.distributeMessage = (message) ->
+  everyone.now.receiveMessage(this.now.name, message)
 everyone.now.updateElement = (className, top, left) ->
   everyone.now.receiveElement(className, top, left)
+everyone.now.distributeSound = (audiotag) ->
+  everyone.now.receiveSound(audiotag)
+
